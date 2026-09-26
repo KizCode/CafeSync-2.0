@@ -1,0 +1,713 @@
+.kasir-body {
+    min-height: 100vh;
+    background: #f2f6fa;
+    color: #2a3547;
+}
+
+.kasir-sidebar {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    padding: 20px 16px;
+    color: #5a6a85;
+    background: #fff;
+    border-right: 1px solid #e5eaef;
+    box-shadow: 0 9px 17.5px rgb(0 0 0 / 5%);
+}
+
+.kasir-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 6px 8px;
+    color: inherit;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.kasir-avatar {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    place-items: center;
+    border-radius: 999px;
+    background: #22c55e;
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.kasir-brand span {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    line-height: 1.15;
+}
+
+.kasir-nav-label {
+    margin: 22px 10px 8px;
+    color: #6b7280;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.kasir-nav {
+    display: grid;
+    gap: 4px;
+}
+
+.kasir-nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 7px;
+    color: #5a6a85;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.kasir-nav svg {
+    width: 20px;
+    height: 20px;
+}
+
+.kasir-nav a.is-active,
+.kasir-nav a:hover {
+    color: #5d87ff;
+    background: #ecf2ff;
+}
+
+.kasir-nav a.is-active {
+    color: #fff;
+    background: #5d87ff;
+    box-shadow: none;
+}
+
+.kasir-account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding: 16px 8px 4px;
+    border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.kasir-account strong,
+.kasir-navbar-user span {
+    display: block;
+    overflow: hidden;
+    font-size: 0.88rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.kasir-account span {
+    color: #9ca3af;
+    font-size: 0.75rem;
+}
+
+.kasir-frame {
+    min-height: 100vh;
+    margin-left: 270px;
+}
+
+.kasir-navbar {
+    position: sticky;
+    z-index: 15;
+    top: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 68px;
+    padding: 0 28px;
+    border-bottom: 1px solid #ece7dc;
+    background: rgb(255 252 246 / 92%);
+    backdrop-filter: blur(12px);
+}
+
+.kasir-nav-toggle {
+    display: none;
+    gap: 4px;
+    width: 42px;
+    height: 42px;
+    padding: 11px 10px;
+    border: 1px solid #e7e2d8;
+    border-radius: 10px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.kasir-nav-toggle span:not(.sr-only) {
+    display: block;
+    height: 2px;
+    background: #171717;
+}
+
+.kasir-navbar-title p,
+.kasir-navbar time {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.kasir-navbar-title h1 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.kasir-navbar-tools {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.kasir-navbar-pos,
+.kasir-navbar-logout {
+    border: 0;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.kasir-navbar-pos {
+    background: #22c55e;
+    color: #fff;
+}
+
+.kasir-navbar-logout {
+    background: #fff;
+    color: #374151;
+    border: 1px solid #e7e2d8;
+}
+
+.kasir-navbar-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #111827;
+}
+
+.kasir-avatar-sm {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+}
+
+.kasir-shell {
+    width: min(1180px, calc(100% - 40px));
+    margin-inline: auto;
+    padding: 24px 0 56px;
+}
+
+.kasir-alert {
+    margin-bottom: 16px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #dcfce7;
+    color: #166534;
+}
+
+.kasir-alert-error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.kasir-topbar {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.kasir-kicker {
+    margin: 0 0 4px;
+    color: #6b7280;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.kasir-topbar h1,
+.kasir-panel h2,
+.kasir-cart h2 {
+    margin: 0;
+}
+
+.kasir-search input,
+.kasir-field input,
+.kasir-qty input {
+    border: 1px solid #d7ddd8;
+    border-radius: 10px;
+    background: #fff;
+    font: inherit;
+}
+
+.kasir-search input {
+    width: min(280px, 100%);
+    height: 42px;
+    padding: 0 14px;
+}
+
+.kasir-stats,
+.kasir-order-grid,
+.kasir-menu-grid,
+.kasir-pay,
+.kasir-methods,
+.kasir-quick-pay,
+.kasir-success-actions {
+    display: grid;
+    gap: 12px;
+}
+
+.kasir-stats {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-bottom: 20px;
+}
+
+.kasir-stats article,
+.kasir-panel,
+.kasir-cart,
+.kasir-menu-card {
+    border: 0;
+    border-radius: 7px;
+    background: #fff;
+    box-shadow: 0 9px 17.5px rgb(0 0 0 / 5%);
+}
+
+.kasir-stats article {
+    padding: 18px;
+}
+
+.kasir-stats span,
+.kasir-muted,
+.kasir-cart-count {
+    color: #6b7280;
+    font-size: 0.84rem;
+}
+
+.kasir-stats strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 1.6rem;
+}
+
+.kasir-panel {
+    padding: 20px;
+}
+
+.kasir-panel-head,
+.kasir-cart-total,
+.kasir-order-list li,
+.kasir-receipt li,
+.kasir-receipt p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.kasir-panel-head {
+    margin-bottom: 14px;
+}
+
+.kasir-order-list,
+.kasir-cart-lines,
+.kasir-order-grid ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.kasir-order-list {
+    display: grid;
+    gap: 10px;
+}
+
+.kasir-order-list li {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee8dc;
+}
+
+.kasir-pos {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.7fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.kasir-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.kasir-filters button,
+.kasir-quick-pay button,
+.kasir-btn,
+.kasir-btn-ghost {
+    border: 0;
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.kasir-filters button,
+.kasir-quick-pay button,
+.kasir-btn-ghost {
+    padding: 8px 14px;
+    background: #fff;
+    color: #374151;
+    border: 1px solid #d7ddd8;
+}
+
+.kasir-filters button.is-active {
+    background: #5d87ff;
+    border-color: #5d87ff;
+    color: #fff;
+}
+
+.kasir-menu-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.kasir-menu-card {
+    overflow: hidden;
+    padding: 0 0 12px;
+}
+
+.kasir-menu-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    background: #e5e7eb;
+}
+
+.kasir-menu-card h2,
+.kasir-menu-card p,
+.kasir-menu-card small {
+    margin: 0 12px;
+}
+
+.kasir-menu-card h2 {
+    margin-top: 10px;
+    font-size: 0.95rem;
+}
+
+.kasir-menu-card p {
+    color: #5d87ff;
+    font-weight: 800;
+}
+
+.kasir-qty {
+    display: grid;
+    grid-template-columns: 36px 1fr 36px;
+    gap: 6px;
+    margin: 10px 12px 0;
+}
+
+.kasir-qty button {
+    border: 1px solid #e5eaef;
+    border-radius: 7px;
+    background: #ecf2ff;
+    color: #5d87ff;
+    cursor: pointer;
+}
+
+.kasir-qty input {
+    min-width: 0;
+    height: 36px;
+    text-align: center;
+}
+
+.kasir-cart {
+    position: sticky;
+    top: 20px;
+    display: grid;
+    gap: 12px;
+    padding: 18px;
+}
+
+.kasir-field {
+    display: grid;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.kasir-field input {
+    height: 42px;
+    padding: 0 12px;
+}
+
+.kasir-cart-total {
+    padding-top: 10px;
+    border-top: 1px solid #eee8dc;
+    font-weight: 800;
+}
+
+.kasir-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 7px;
+    background: #5d87ff;
+    color: #fff;
+    text-decoration: none;
+}
+
+.kasir-btn:hover {
+    background: #4570ea;
+}
+
+.kasir-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.kasir-pay {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+    align-items: start;
+}
+
+.kasir-methods {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.kasir-methods label {
+    cursor: pointer;
+}
+
+.kasir-methods span {
+    display: grid;
+    place-items: center;
+    min-height: 44px;
+    border: 1px solid #d7ddd8;
+    border-radius: 12px;
+    background: #fff;
+    font-weight: 700;
+}
+
+.kasir-methods input {
+    position: absolute;
+    opacity: 0;
+}
+
+.kasir-methods input:checked + span {
+    border-color: #5d87ff;
+    background: #ecf2ff;
+    color: #4570ea;
+}
+
+.kasir-badge {
+    padding: 4px 10px;
+    border-radius: 7px;
+    background: #ecf2ff;
+    color: #5d87ff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.kasir-success-mark {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 12px;
+    border-radius: 999px;
+    background: #13deb9;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 56px;
+}
+
+.kasir-change {
+    margin: 0;
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.kasir-success {
+    display: grid;
+    place-items: center;
+    min-height: 60vh;
+}
+
+.kasir-success-card {
+    width: min(420px, 100%);
+    text-align: center;
+}
+
+.kasir-success-mark {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 12px;
+    border-radius: 999px;
+    background: #22c55e;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 56px;
+}
+
+.kasir-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.kasir-order-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.kasir-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.kasir-table th,
+.kasir-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #eee8dc;
+    text-align: left;
+}
+
+.kasir-text-link,
+.kasir-text-danger,
+.kasir-table a,
+.kasir-panel-head a {
+    color: #5d87ff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.kasir-text-danger,
+.kasir-success-actions form,
+.kasir-success-actions button {
+    background: none;
+    border: 0;
+    color: #b4483f;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.kasir-empty {
+    color: #6b7280;
+}
+
+.kasir-receipt-page {
+    background: #f4f1ea;
+    padding: 32px 16px;
+}
+
+.kasir-receipt {
+    width: min(320px, 100%);
+    margin: 0 auto;
+    padding: 24px;
+    background: #fff;
+    font-size: 0.88rem;
+}
+
+.kasir-receipt header {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.kasir-receipt-thanks {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.kasir-receipt-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+@media (max-width: 960px) {
+    .kasir-pos,
+    .kasir-pay {
+        grid-template-columns: 1fr;
+    }
+
+    .kasir-cart {
+        position: static;
+    }
+}
+
+@media (max-width: 760px) {
+    .kasir-sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+    }
+
+    .kasir-sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    .kasir-frame,
+    .app-frame {
+        margin-left: 0;
+    }
+
+    .kasir-nav-toggle {
+        display: grid;
+    }
+
+    .kasir-navbar,
+    .app-navbar {
+        padding-inline: 16px;
+    }
+
+    .kasir-navbar-user span,
+    .kasir-navbar time {
+        display: none;
+    }
+
+    .kasir-shell {
+        width: min(100% - 28px, 640px);
+        margin-left: auto;
+        padding-top: 20px;
+    }
+}
+
+@media print {
+    .kasir-receipt-actions,
+    .kasir-sidebar,
+    .kasir-navbar,
+    .sidebar-toggle,
+    .kasir-nav-toggle {
+        display: none;
+    }
+
+    .kasir-receipt-page {
+        background: #fff;
+        padding: 0;
+    }
+}
