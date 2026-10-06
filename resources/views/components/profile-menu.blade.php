@@ -1,5 +1,4 @@
 @props([
-    'home',
     'initials',
 ])
 
@@ -10,7 +9,7 @@
     <div class="mz-dropdown-panel">
         <p class="mz-dropdown-name">{{ auth()->user()->name }}</p>
         <p class="mz-dropdown-role">{{ ucfirst(auth()->user()->role) }}</p>
-        <a href="{{ $home }}">Dashboard</a>
+        <a href="{{ route('profile.edit') }}">Profil</a>
         <form action="{{ route('logout') }}" method="POST">
             @csrf
             @method('DELETE')
@@ -18,3 +17,4 @@
         </form>
     </div>
 </details>
+

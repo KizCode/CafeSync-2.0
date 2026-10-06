@@ -1,7 +1,21 @@
 .kasir-body {
     min-height: 100vh;
-    background: #f2f6fa;
-    color: #2a3547;
+    background: #f4f1ea;
+    color: #1f2937;
+}
+
+.kasir-body.mz-body {
+    background: #f4f1ea;
+    color: #1f2937;
+}
+
+.kasir-body .mz-header {
+    border-bottom: 1px solid #ece7dc;
+    background: rgb(250 248 244 / 94%);
+}
+
+.kasir-shell.is-pos {
+    width: min(1360px, calc(100% - 40px));
 }
 
 .kasir-sidebar {
@@ -130,7 +144,7 @@
     min-height: 68px;
     padding: 0 28px;
     border-bottom: 1px solid #ece7dc;
-    background: rgb(255 252 246 / 92%);
+    background: rgb(250 248 244 / 94%);
     backdrop-filter: blur(12px);
 }
 
@@ -188,6 +202,18 @@
 .kasir-navbar-pos {
     background: #22c55e;
     color: #fff;
+}
+
+.kasir-body .kasir-navbar-pos.mz-btn,
+.admin-body .kasir-navbar-pos.mz-btn,
+.app-body .kasir-navbar-pos.mz-btn {
+    background: #22c55e;
+}
+
+.kasir-body .kasir-navbar-pos.mz-btn:hover,
+.admin-body .kasir-navbar-pos.mz-btn:hover,
+.app-body .kasir-navbar-pos.mz-btn:hover {
+    background: #16a34a;
 }
 
 .kasir-navbar-logout {
@@ -381,13 +407,13 @@
 }
 
 .kasir-filters button.is-active {
-    background: #5d87ff;
-    border-color: #5d87ff;
+    background: #22c55e;
+    border-color: #22c55e;
     color: #fff;
 }
 
 .kasir-menu-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 .kasir-menu-card {
@@ -395,9 +421,14 @@
     padding: 0 0 12px;
 }
 
+.kasir-menu-card.is-selected {
+    outline: 2px solid #22c55e;
+    outline-offset: 0;
+}
+
 .kasir-menu-card img {
     width: 100%;
-    height: 120px;
+    height: 148px;
     object-fit: cover;
     background: #e5e7eb;
 }
@@ -414,7 +445,7 @@
 }
 
 .kasir-menu-card p {
-    color: #5d87ff;
+    color: #16a34a;
     font-weight: 800;
 }
 
@@ -426,10 +457,10 @@
 }
 
 .kasir-qty button {
-    border: 1px solid #e5eaef;
+    border: 1px solid #bbf7d0;
     border-radius: 7px;
-    background: #ecf2ff;
-    color: #5d87ff;
+    background: #ecfdf5;
+    color: #15803d;
     cursor: pointer;
 }
 
@@ -471,14 +502,14 @@
     justify-content: center;
     min-height: 44px;
     padding: 0 18px;
-    border-radius: 7px;
-    background: #5d87ff;
+    border-radius: 999px;
+    background: #22c55e;
     color: #fff;
     text-decoration: none;
 }
 
 .kasir-btn:hover {
-    background: #4570ea;
+    background: #16a34a;
 }
 
 .kasir-btn-ghost {
@@ -490,6 +521,11 @@
 .kasir-pay {
     grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
     align-items: start;
+}
+
+.kasir-pay-stage {
+    width: min(920px, 100%);
+    margin-inline: auto;
 }
 
 .kasir-methods {
@@ -516,9 +552,9 @@
 }
 
 .kasir-methods input:checked + span {
-    border-color: #5d87ff;
-    background: #ecf2ff;
-    color: #4570ea;
+    border-color: #22c55e;
+    background: #ecfdf5;
+    color: #15803d;
 }
 
 .kasir-badge {
@@ -589,18 +625,36 @@
     border-collapse: collapse;
 }
 
+.kasir-table-wrap {
+    overflow-x: auto;
+}
+
 .kasir-table th,
 .kasir-table td {
-    padding: 10px 8px;
+    padding: 12px 10px;
     border-bottom: 1px solid #eee8dc;
     text-align: left;
+    vertical-align: top;
+}
+
+.kasir-table thead th {
+    color: #6b7280;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.kasir-table td .kasir-muted {
+    display: block;
+    margin-top: 4px;
 }
 
 .kasir-text-link,
 .kasir-text-danger,
 .kasir-table a,
 .kasir-panel-head a {
-    color: #5d87ff;
+    color: #16a34a;
     font-weight: 700;
     text-decoration: none;
 }
@@ -621,16 +675,31 @@
 }
 
 .kasir-receipt-page {
-    background: #f4f1ea;
+    min-height: 100vh;
+    background: #111827;
     padding: 32px 16px;
+    color: #e5e7eb;
 }
 
 .kasir-receipt {
     width: min(320px, 100%);
     margin: 0 auto;
     padding: 24px;
-    background: #fff;
+    border-radius: 16px;
+    background: #1f2937;
     font-size: 0.88rem;
+}
+
+.kasir-receipt-mark {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 10px;
+    place-items: center;
+    border-radius: 999px;
+    background: #22c55e;
+    color: #fff;
+    font-weight: 800;
 }
 
 .kasir-receipt header {
@@ -638,9 +707,20 @@
     text-align: center;
 }
 
+.kasir-receipt header strong {
+    display: block;
+    color: #fff;
+}
+
+.kasir-receipt li,
+.kasir-receipt p {
+    color: #d1d5db;
+}
+
 .kasir-receipt-thanks {
     margin-top: 18px;
     text-align: center;
+    color: #86efac;
 }
 
 .kasir-receipt-actions {
@@ -708,6 +788,12 @@
 
     .kasir-receipt-page {
         background: #fff;
+        color: #111827;
         padding: 0;
+    }
+
+    .kasir-receipt {
+        background: #fff;
+        color: #111827;
     }
 }

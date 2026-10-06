@@ -11,6 +11,7 @@
 <body class="kasir-receipt-page">
     <article class="kasir-receipt">
         <header>
+            <span class="kasir-receipt-mark">C</span>
             <strong>CafeSync</strong>
             <p>{{ $transaction->invoice_number }}</p>
             <p>{{ $transaction->created_at->timezone(config('app.timezone'))->format('d/m/Y H:i') }}</p>

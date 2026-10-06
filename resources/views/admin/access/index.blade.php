@@ -2,7 +2,7 @@
     <div class="page-heading">
         <div>
             <h1>Hak akses peran</h1>
-            <p>Hanya admin yang dapat membuka halaman ini. Peran lain tidak masuk ke area admin.</p>
+            <p>Admin dapat membuka semua halaman. Peran lain tidak masuk ke area admin.</p>
         </div>
     </div>
 

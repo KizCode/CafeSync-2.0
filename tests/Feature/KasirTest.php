@@ -122,13 +122,13 @@ test('a cashier cannot view another cashiers transaction', function () {
         ->assertNotFound();
 });
 
-test('an admin cannot open the cashier pos', function () {
+test('an admin can open another cashiers transaction', function () {
     $admin = User::factory()->admin()->create();
     $sale = Transaction::factory()->create();
 
     $this->actingAs($admin)
         ->get(route('kasir.show', $sale))
-        ->assertForbidden();
+        ->assertOk();
 });
 
 test('the cashier dashboard only totals the signed-in cashiers sales', function () {
@@ -152,5 +152,18 @@ test('the cashier dashboard only totals the signed-in cashiers sales', function 
         ->get(route('kasir.dashboard'))
         ->assertOk()
         ->assertSee('Rp 25.000')
+        ->assertSee('Item terjual')
         ->assertDontSee('Rp 99.000');
+});
+
+test('a cashier sees the remake pos with a cart panel', function () {
+    $cashier = User::factory()->create();
+    Product::factory()->create(['name' => 'Latte', 'stock' => 3]);
+
+    $this->actingAs($cashier)
+        ->get(route('kasir.index'))
+        ->assertOk()
+        ->assertSee('Keranjang')
+        ->assertSee('Pilih menu')
+        ->assertSee('Latte');
 });

@@ -5,12 +5,12 @@
         <section class="kasir-pos-main">
             <header class="kasir-topbar">
                 <div>
-                    <p class="kasir-kicker">POS</p>
+                    <p class="kasir-kicker">Point of Sale</p>
                     <h1>Pilih menu</h1>
                 </div>
                 <label class="kasir-search">
                     <span class="sr-only">Cari menu</span>
-                    <input type="search" data-menu-search placeholder="Cari menu...">
+                    <input type="search" data-menu-search placeholder="Cari kopi, makanan...">
                 </label>
             </header>
 
@@ -47,7 +47,7 @@
         </section>
 
         <aside class="kasir-cart">
-            <h2>Pesanan</h2>
+            <h2>Keranjang</h2>
             <label class="kasir-field">
                 Nama pelanggan
                 <input name="customer_name" value="{{ old('customer_name') }}" maxlength="50" placeholder="Umum">

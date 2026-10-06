@@ -40,10 +40,35 @@ test('admins can access product management', function () {
         ->assertOk();
 });
 
-test('admins cannot access the cashier pos', function () {
+test('admins can access the cashier pos', function () {
     $admin = User::factory()->create(['role' => 'admin', 'is_admin' => true]);
 
     $this->actingAs($admin)
         ->get(route('kasir.index'))
-        ->assertForbidden();
+        ->assertOk()
+        ->assertSee('Keranjang');
 });
+
+test('each role only sees its own sidebar links', function (string $role, string $route, array $visible, array $hidden) {
+    $user = User::factory()->create([
+        'role' => $role,
+        'is_admin' => $role === 'admin',
+    ]);
+
+    $response = $this->actingAs($user)
+        ->get(route($route))
+        ->assertOk();
+
+    foreach ($visible as $label) {
+        $response->assertSee($label);
+    }
+
+    foreach ($hidden as $label) {
+        $response->assertDontSee($label, ! str_contains($label, '<'));
+    }
+})->with([
+    'admin' => ['admin', 'admin.index', ['Hak Akses', 'POS', 'Gudang', 'Buka POS', 'Total pendapatan'], ['>Kasir</a>', '>Owner</a>']],
+    'cashier' => ['kasir', 'kasir.dashboard', ['POS', 'Pesanan', 'Riwayat'], ['Hak Akses', 'Pengguna']],
+    'owner' => ['owner', 'owner.index', ['Dashboard', 'Laporan', 'Analitik', 'Total pendapatan', 'Overview'], ['Hak Akses', 'Buka POS', 'Riwayat', 'Kelola menu']],
+    'warehouse' => ['gudang', 'gudang.index', ['Dashboard'], ['Hak Akses', 'Buka POS', 'Riwayat']],
+]);

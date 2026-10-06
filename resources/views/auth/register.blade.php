@@ -1,6 +1,6 @@
-<x-layouts.auth title="Daftar">
+<x-layouts.auth title="Daftar" panel="register">
     <h1 class="auth-title">Buat akun baru</h1>
-    <p class="auth-subtext">Daftar sebagai Owner CafeSync</p>
+    <p class="auth-subtext">Daftar sebagai customer CafeSync</p>
 
     <ol class="auth-steps">
         <li class="{{ $step === 1 ? 'is-active' : 'is-done' }}">
@@ -18,43 +18,43 @@
             @csrf
 
             <div class="auth-field">
-                <label for="name">Nama Lengkap</label>
+                <label for="name">Nama Lengkap <em>*</em></label>
                 <input id="name" name="name" type="text" value="{{ old('name', $details['name'] ?? '') }}"
-                    autocomplete="name" required>
+                    autocomplete="name" placeholder="cth. Budi Santoso" required>
                 @error('name')
                     <p class="auth-error">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="auth-field">
-                <label for="email">Email</label>
+                <label for="email">Email <em>*</em></label>
                 <input id="email" name="email" type="email" value="{{ old('email', $details['email'] ?? '') }}"
-                    autocomplete="email" required>
+                    autocomplete="email" placeholder="email@contoh.com" required>
                 @error('email')
                     <p class="auth-error">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="auth-field">
-                <label for="phone">Nomor Telepon</label>
+                <label for="phone">Nomor Telepon <em>*</em></label>
                 <div class="auth-phone">
                     <span>+62</span>
                     <input id="phone" name="phone" type="tel" value="{{ old('phone', $details['phone'] ?? '') }}"
-                        autocomplete="tel" required>
+                        autocomplete="tel" placeholder="812-xxxx-xxxx" required>
                 </div>
                 @error('phone')
                     <p class="auth-error">{{ $message }}</p>
                 @enderror
             </div>
 
-            <button type="submit" class="auth-submit">Lanjut</button>
+            <button type="submit" class="auth-submit">Lanjut →</button>
         </form>
     @else
         <form action="{{ route('register.store') }}" method="POST" class="auth-form">
             @csrf
 
             <div class="auth-field">
-                <label for="password">Password</label>
+                <label for="password">Password <em>*</em></label>
                 <div class="auth-input-wrap">
                     <input id="password" name="password" type="password" autocomplete="new-password" required>
                     <button type="button" class="auth-eye" data-password-toggle aria-controls="password"
@@ -71,7 +71,7 @@
             </div>
 
             <div class="auth-field">
-                <label for="password_confirmation">Konfirmasi Password</label>
+                <label for="password_confirmation">Konfirmasi Password <em>*</em></label>
                 <div class="auth-input-wrap">
                     <input id="password_confirmation" name="password_confirmation" type="password"
                         autocomplete="new-password" required>
@@ -102,6 +102,6 @@
 
     <p class="auth-help">
         Sudah punya akun?
-        <a href="{{ route('login') }}" class="auth-text-link">Masuk</a>
+        <a href="{{ route('login') }}" class="auth-text-link">Masuk di sini</a>
     </p>
 </x-layouts.auth>

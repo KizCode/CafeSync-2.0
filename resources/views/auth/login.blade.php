@@ -1,14 +1,14 @@
-<x-layouts.auth title="Masuk">
-    <h1 class="auth-title">Masuk</h1>
-    <p class="auth-subtext">Kelola kafe dari satu dashboard CafeSync</p>
+<x-layouts.auth title="Masuk" panel="login">
+    <h1 class="auth-title">Selamat datang kembali</h1>
+    <p class="auth-subtext">Masuk ke akun CafeSync Anda</p>
 
     <form action="{{ route('login.store') }}" method="POST" class="auth-form">
         @csrf
 
         <div class="auth-field">
-            <label for="identifier">Email / Username</label>
+            <label for="identifier">Email</label>
             <input id="identifier" name="identifier" type="text" value="{{ old('identifier') }}"
-                autocomplete="username" required>
+                autocomplete="username" placeholder="email@contoh.com" required>
             @error('identifier')
                 <p class="auth-error">{{ $message }}</p>
             @enderror
@@ -40,7 +40,7 @@
     </form>
 
     <p class="auth-help">
-        Baru di CafeSync?
-        <a href="{{ route('register') }}" class="auth-text-link">Buat akun</a>
+        Belum punya akun?
+        <a href="{{ route('register') }}" class="auth-text-link">Daftar sekarang</a>
     </p>
 </x-layouts.auth>

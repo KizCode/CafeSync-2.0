@@ -2,6 +2,7 @@
 @import "./styles/login.css";
 @import "./styles/kasir.css";
 @import "./styles/modernize.css";
+@import "./styles/owner.css";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -281,6 +282,10 @@ body {
 .form-grid {
     display: grid;
     gap: 18px;
+}
+
+.profile-card {
+    max-width: 520px;
 }
 
 .menu-heading {

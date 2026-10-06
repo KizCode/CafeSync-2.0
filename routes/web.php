@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\AccessMatrixController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminReportController;
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\KasirController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\RoleDashboardController;
 use App\Http\Controllers\UserController;
@@ -24,9 +26,17 @@ Route::middleware('guest')->group(function () {
 
 Route::delete('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
 Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.index')->middleware(['auth', 'role:admin']);
+Route::get('/admin/laporan', [AdminReportController::class, 'laporan'])->name('admin.laporan')->middleware(['auth', 'role:admin,owner']);
+Route::get('/admin/laporan/export', [AdminReportController::class, 'export'])->name('admin.laporan.export')->middleware(['auth', 'role:admin,owner']);
+Route::get('/admin/analitik', [AdminReportController::class, 'analitik'])->name('admin.analitik')->middleware(['auth', 'role:admin,owner']);
 Route::get('/admin/access', AccessMatrixController::class)->name('admin.access')->middleware(['auth', 'role:admin']);
-Route::get('/owner', [RoleDashboardController::class, 'owner'])->name('owner.index')->middleware(['auth', 'role:owner']);
+Route::get('/owner', [AdminDashboardController::class, 'index'])->name('owner.index')->middleware(['auth', 'role:owner']);
 Route::get('/gudang', [RoleDashboardController::class, 'gudang'])->name('gudang.index')->middleware(['auth', 'role:gudang']);
 Route::resource('admin/users', UserController::class)
     ->names('admin.users')

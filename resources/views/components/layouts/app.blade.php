@@ -29,44 +29,10 @@
         @endphp
 
         <div class="sidebar-overlay" data-sidebar-overlay></div>
-        <x-sidebar :home="$home" :role="$roleLabel">
-            <p class="kasir-nav-label">Home</p>
-            <nav class="mz-nav" aria-label="Navigasi utama">
-                @if (auth()->user()->role === 'owner')
-                    <a href="{{ route('owner.index') }}" @class(['is-active' => request()->routeIs('owner.index')])>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" />
-                        </svg>
-                        Dashboard
-                    </a>
-                @endif
-                @if (auth()->user()->role === 'gudang')
-                    <a href="{{ route('gudang.index') }}" @class(['is-active' => request()->routeIs('gudang.index')])>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" />
-                        </svg>
-                        Dashboard
-                    </a>
-                @endif
-            </nav>
-        </x-sidebar>
+        <x-sidebar :home="$home" />
 
         <div class="app-frame">
-            <header class="app-navbar mz-header">
-                <button class="kasir-nav-toggle mz-icon-btn" type="button" aria-controls="app-sidebar" aria-expanded="false"
-                    data-sidebar-toggle>
-                    <span></span><span></span><span></span>
-                    <span class="sr-only">Buka navigasi</span>
-                </button>
-                <div class="kasir-navbar-title">
-                    <p>{{ $roleLabel }}</p>
-                    <h1>{{ $navTitle }}</h1>
-                </div>
-                <div class="kasir-navbar-tools">
-                    <time data-clock></time>
-                    <x-profile-menu :home="$home" :initials="$initials" />
-                </div>
-            </header>
+            <x-app-navbar :heading="$navTitle" :role-label="$roleLabel" :home="$home" :initials="$initials" />
             <main class="app-main">
     @else
         <main class="app-main app-main-guest">

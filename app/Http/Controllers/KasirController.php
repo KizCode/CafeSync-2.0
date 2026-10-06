@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateTransactionRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Transaction;
+use App\Models\TransactionItem;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -25,12 +26,24 @@ class KasirController extends Controller
             ->whereDate('created_at', today())
             ->where('status', 'lunas');
 
+        $todayTotal = (float) (clone $todaySales)->sum('grand_total');
+        $todayCount = (clone $todaySales)->count();
+
         return view('kasir.dashboard', [
-            'todayTotal' => (clone $todaySales)->sum('grand_total'),
-            'todayCount' => (clone $todaySales)->count(),
+            'todayTotal' => $todayTotal,
+            'todayCount' => $todayCount,
+            'todayItemCount' => (int) TransactionItem::query()
+                ->whereHas(
+                    'transaction',
+                    fn ($query) => $query
+                        ->visibleTo($user)
+                        ->whereDate('created_at', today())
+                        ->where('status', 'lunas')
+                )
+                ->sum('quantity'),
+            'todayAverage' => $todayCount > 0 ? $todayTotal / $todayCount : 0,
             'transactions' => Transaction::query()
                 ->visibleTo($user)
-                ->with('items')
                 ->latest()
                 ->limit(8)
                 ->get(),

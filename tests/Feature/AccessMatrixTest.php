@@ -42,16 +42,18 @@ test('non admins cannot open other admin pages', function (string $role, string 
     'owner products' => ['owner', 'admin.products.index'],
     'cashier dashboard' => ['kasir', 'admin.index'],
     'cashier users' => ['kasir', 'admin.users.index'],
+    'cashier reports' => ['kasir', 'admin.laporan'],
+    'cashier analytics' => ['kasir', 'admin.analitik'],
     'warehouse dashboard' => ['gudang', 'admin.index'],
     'warehouse users' => ['gudang', 'admin.users.index'],
 ]);
 
-test('an admin cannot open other role areas', function (string $route) {
+test('an admin can open other role areas', function (string $route) {
     $admin = User::factory()->admin()->create();
 
     $this->actingAs($admin)
         ->get(route($route))
-        ->assertForbidden();
+        ->assertOk();
 })->with([
     'owner' => ['owner.index'],
     'warehouse' => ['gudang.index'],

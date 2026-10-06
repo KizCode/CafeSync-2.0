@@ -7,7 +7,7 @@
         <a class="kasir-btn-ghost" href="{{ route('kasir.index') }}">Kembali ke POS</a>
     </header>
 
-    <div class="kasir-pay">
+    <div class="kasir-pay kasir-pay-stage">
         <section class="kasir-panel">
             <h2>Ringkasan pesanan</h2>
             <p class="kasir-muted">Pelanggan: {{ $cart['customer_name'] ?: 'Umum' }}</p>
